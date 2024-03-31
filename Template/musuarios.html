@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <title>Usuarios</title>
+</head>
+<body>
+    {% include ('cabeceraAd.html') %}
+    <!--este condicional define si usuarios realmente existe-->
+    <div style="margin-top: 30px;">
+        <h1 style="text-align: center; font-family: 'Luminari', cursive "><em>Lista de Usuarios</em></h1>
+    </div>
+    
+    {% if usuarios %}  
+    <div class="tbusuarios">
+        <table class="table table-sm">
+            <thead class="table-dark table-sm">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CORREO</th>
+                <th scope="col">PASSWORD</th>
+              </tr>
+            </thead>
+            <tbody >
+                {% for listar in usuarios %}
+              <tr>
+                <td>{{listar.id}}</td>
+                <td>{{listar.correo}}</td>
+                <td>{{listar.password}}</td>
+              </tr>
+              <tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    {% else %}
+    <p>No se han encontrado registros</p>
+    {% endif %}
+</body>
+</html>
